@@ -1,0 +1,62 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login - Online Tiffin Service</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Online Tiffin Service</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="user-registration">
+        <div class="container">
+            <h2 class="text-center">User Login</h2>
+            <form>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+        </div>
+    </section>
+    <footer class="bg-dark text-white text-center py-3" style="margin-top: 15%;">
+        &copy; 2023 Online Tiffin Service
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

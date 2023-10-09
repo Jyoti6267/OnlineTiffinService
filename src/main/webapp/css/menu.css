@@ -1,0 +1,163 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: burlywood;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    background-image: url('hero-background.jpg');
+    background-size: cover;
+    text-align: center;
+    padding: 4rem 0;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #f39200;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.food-gallery {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.food-gallery h2 {
+    font-size: 24px;
+}
+
+.food-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.food-item {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.food-item img {
+    max-width: 100%;
+    height: auto;
+
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.food-card:hover {
+    background-color: #f39200; /* Change background color on hover */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.food-card:hover .card-title {
+    color: #fff; /* Change text color on hover */
+    transition: color 0.3s ease-in-out;
+}
+
+
+
+.navbar .navbar-nav .nav-link:hover {
+    background-color: yellow;
+    color:white;
+    border-radius: 50%;
+
+  }
+
+
+
+  @media only screen and (max-width: 992px) {
+    
+    .navbar .navbar-nav .nav-link:hover {
+        
+        border-radius: 2%;
+    
+      }
+  
+  }
+  
+
+
+.navbar .navbar-nav .nav-link {
+
+  padding: 0.7em;
+  font-size: 1.2em;
+  transition: all 0.5s;
+}
+.navbar .navbar-brand {
+  padding: 0 0.6em;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.modal-content table {
+    background-color: #f0f7ff; /* Light blue background for the table */
+}
+
+.modal-content th,
+.modal-content td {
+    border-color: #0069d9; /* Blue border color for table cells */
+}
+
+.modal-footer .btn-primary {
+    background-color: #0069d9; /* Blue background for the "OK" button */
+    border-color: #0062cc; /* Slightly darker blue border for the button */
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}

@@ -1,0 +1,210 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Online Tiffin Service</title>
+    <link rel="stylesheet" href="css/menu.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Online Tiffin Service</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="menu">
+        <div class="container">
+            <h2 class="text-center">Our Special Tiffin Menu</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 food-card">
+                        <img src="img/food1.webp" class="card-img-top" alt="Tiffin 1">
+                        <div class="card-body">
+                            <h3 class="card-title">Special Tiffin 1</h3>
+                            <p class="card-text">
+                                <strong>Cost per Month:</strong> Rs. 2900<br>
+                            </p>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#tiffinDetailsModal1">Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 food-card">
+                        <img src="img/food2.webp" class="card-img-top" alt="Tiffin 2">
+                        <div class="card-body">
+                            <h3 class="card-title">Special Tiffin 2</h3>
+                            <p class="card-text">
+                                <strong>Cost per Month:</strong> Rs. 3000<br>
+                            </p>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#tiffinDetailsModal2">Details</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 food-card">
+                        <img src="img/food3.webp" class="card-img-top" alt="Tiffin 3">
+                        <div class="card-body">
+                            <h3 class="card-title">Special Tiffin 3</h3>
+                            <p class="card-text">
+                                <strong>Cost per Month:</strong> Rs. 3490<br>
+                            </p>
+                            <button class="btn btn-primary" data-toggle="modal" onclick ="clicked(event);" data-target="#tiffinDetailsModal3">Details</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="modal fade" id="tiffinDetailsModal1" tabindex="-1" role="dialog" aria-labelledby="tiffinDetailsModal1Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tiffinDetailsModal1Label">Details for Special Tiffin 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Weekday</th>
+                                <th>Menu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>Menu for Sunday</td>
+                            </tr>
+                            <tr>
+                                <td>Monday</td>
+                                <td>Menu for Monday</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>Menu for Tuesday</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>Menu for Wednesday</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>Menu for Thursday</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>Menu for Friday</td>
+                            </tr>
+
+                            <tr>
+                                <td>Saturday</td>
+                                <td>Menu for Saturday</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="tiffinDetailsModal2" tabindex="-1" role="dialog" aria-labelledby="tiffinDetailsModal2Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tiffinDetailsModal1Label">Details for Special Tiffin 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Weekday</th>
+                                <th>Menu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>Menu for Monday</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="tiffinDetailsModal3" tabindex="-1" role="dialog" aria-labelledby="tiffinDetailsModal3Label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="tiffinDetailsModal1Label">Details for Special Tiffin 1</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Weekday</th>
+                                <th>Menu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td>Menu for Monday</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2023 Online Tiffin Service
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: burlywood;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+
+.hero {
+    background-image: url('hero-background.jpg');
+    background-size: cover;
+    text-align: center;
+    padding: 4rem 0;
+    color: #fff;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #f39200;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.table {
+    background-color: #f0f7ff; /* Light blue background for the table */
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.table th,
+.table td {
+    border: 1px solid #0069d9; /* Blue border for table cells */
+    padding: 0.75rem;
+    text-align: left;
+    vertical-align: top;
+}
+
+.table th {
+    background-color: #0069d9; /* Blue background for table header */
+    color: #fff; /* White text color for table header */
+}
+
+.table th:hover {
+    background-color: #0056b3; /* Darker blue color on hover */
+}
+
+.table tbody tr:hover {
+    background-color: #e0f2ff; /* Lighter blue color on hover for table rows */
+}
+
+
+footer {
+    margin-top: 20%;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+
+
+
+.navbar .navbar-nav .nav-link:hover {
+    background-color: yellow;
+    color:white;
+    border-radius: 50%;
+
+  }
+
+  @media only screen and (max-width: 992px) {
+    
+    .navbar .navbar-nav .nav-link:hover {
+        
+        border-radius: 2%;
+    
+      }
+  
+  }
+  
+
+
+
+.navbar .navbar-nav .nav-link {
+
+  padding: 0.7em;
+  font-size: 1.2em;
+  transition: all 0.5s;
+}
+.navbar .navbar-brand {
+  padding: 0 0.6em;
+  font-size: 1.5em;
+  font-weight: bold;
+}
