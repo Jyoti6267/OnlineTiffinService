@@ -42,4 +42,39 @@
     </servlet-mapping>
 
 
+    <servlet>
+        <servlet-name>AdminSection</servlet-name>
+        <servlet-class>servlets.AdminSection</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminSection</servlet-name>
+        <url-pattern>/admin_section</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Payment</servlet-name>
+        <servlet-class>servlets.Payment</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Payment</servlet-name>
+        <url-pattern>/payment</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>MealRegistration</servlet-name>
+        <servlet-class>servlets.MealRegistration</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MealRegistration</servlet-name>
+        <url-pattern>/meal_registration</url-pattern>
+    </servlet-mapping>
+
+
+    <welcome-file-list>
+        <welcome-file>/views/home.jsp</welcome-file>
+    </welcome-file-list>
+
+
+
 </web-app>

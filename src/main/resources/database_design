@@ -1,0 +1,37 @@
+Menu table :
+
+id  ,  title , sunday , monday , ..... , saturday , price , photo location
+
+User table :
+
+username , password , name , address ,  mobile , district , pincode
+
+
+Order table :
+
+id , meal_id , days , order date , username
+
+
+
+OTP table:
+
+id  ,otp , username , expires
+
+
+
+*******************************************************
+
+create table menu ( id int primary key , title varchar(50) not null , sunday varchar(150) not null , monday varchar(150) not null , tuesday varchar(150) not null, wednesday varchar(150) not null,
+
+thursday varchar(150) not null , friday varchar(150) not null , saturday varchar(150) not null , price int not null , url varchar(150) not null );
+
+
+
+create table user ( username varchar(80) primary key ,  password varchar(150) not null , name varchar(50) not null ,address varchar(150) not null , mobile varchar(10) not null , district varchar(100) not null , pincode varchar(6) not null );
+
+
+
+create table subscription ( id int primary key , menu_id int not null, days int not null, order_date date not null , username varchar(80) not null , foreign key (username) references user(username) , foreign key (menu_id) references menu(id));
+
+
+create table otp ( id int primary key , otp char(6) not null , username varchar(80) not null , expires timestamp not null , foreign key(username) references user(username));

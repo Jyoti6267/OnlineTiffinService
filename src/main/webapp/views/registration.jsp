@@ -86,7 +86,7 @@
                     <input type="password" class="form-control" id="password" placeholder="Enter your password">
                 </div>
 
-                <button type="button" class="btn btn-primary" id="getOTPButton">Get OTP</button>
+
 
                  <div id="otpField">
                         <div class="form-group">
@@ -95,6 +95,10 @@
                           </div>
                   </div>
 
+                <button type="button" class="btn btn-primary" id="getOTPButton" onclick = "otprequest()">Get OTP</button>
+
+                <br>
+                <br>
 
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
@@ -103,6 +107,25 @@
     <footer class="bg-dark text-white text-center py-3" style="margin-top: 5%;">
         &copy; 2023 Online Tiffin Service
     </footer>
+    <script>
+
+
+        function otprequest() {
+
+            let email_id = document.getElementById("email");
+
+            // if valid email then use fetch api to send email
+
+            // if successfully send then make otp field visible
+
+            let otp = document.getElementById("otpField");
+
+            otp.style.display="block";
+
+        }
+
+
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
