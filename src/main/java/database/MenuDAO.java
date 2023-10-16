@@ -1,14 +1,11 @@
 package database;
-
 import database.entity.Menu;
-import database.entity.User;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import utility.PropertyHolder;
-
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.sql.*;
@@ -19,9 +16,7 @@ public class MenuDAO {
 
     private static String filesLocation = PropertyHolder.getValue("filesLocation");
 
-
     public static Menu builder(HttpServletRequest request){
-
         Menu menu = new Menu();
         if(ServletFileUpload.isMultipartContent(request)){
             FileItemFactory fileItemFactory = new DiskFileItemFactory();
@@ -82,8 +77,12 @@ public class MenuDAO {
                     }
                 }
 
+
+                return menu;
+
             } catch (IOException | FileUploadException | SQLException e) {
                 e.printStackTrace();
+                return null;
             }
 
         }
@@ -100,6 +99,12 @@ public class MenuDAO {
         inputStream.close();
     }
 
+    public static void deleteFile(String filesLocation,HttpServletRequest request){
+        String path = request.getServletContext().getRealPath("/")+filesLocation.substring(filesLocation.indexOf("/"));
+        File file = new File(path);
+        file.delete();
+    }
+
     private static int nextId() throws SQLException, IOException {
         Connection connection = GetConnection.getConnection();
         Statement statement = connection.createStatement();
@@ -112,36 +117,43 @@ public class MenuDAO {
         else return 0;
     }
 
-    public static void insert(User user) throws SQLException, IOException {
+    public static void insert(Menu menu) throws SQLException, IOException {
         Connection connection = GetConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("insert into user (username,password,mobile,address,pincode,district,name) values (?,?,?,?,?,?,?)");
-        preparedStatement.setString(1,user.getUsername());
-        preparedStatement.setString(2,user.getPassword());
-        preparedStatement.setString(3,user.getMobile());
-        preparedStatement.setString(4,user.getAddress());
-        preparedStatement.setString(5,user.getPincode());
-        preparedStatement.setString(6,user.getDistrict());
-        preparedStatement.setString(7,user.getName());
+        PreparedStatement preparedStatement = connection.prepareStatement("insert into menu (title,sunday,monday,tuesday,wednesday,thursday,friday,saturday,price,url) values (?,?,?,?,?,?,?,?,?,?)");
+        preparedStatement.setString(1,menu.getTitle());
+        preparedStatement.setString(2,menu.getSunday());
+        preparedStatement.setString(3,menu.getMonday());
+        preparedStatement.setString(4,menu.getTuesday());
+        preparedStatement.setString(5,menu.getWednesday());
+        preparedStatement.setString(6,menu.getThursday());
+        preparedStatement.setString(7,menu.getFriday());
+        preparedStatement.setString(8,menu.getSaturday());
+        preparedStatement.setInt(9,menu.getPrice());
+        preparedStatement.setString(10,menu.getUrl());
         preparedStatement.executeUpdate();
     }
 
-    public static void delete(User user) throws SQLException, IOException {
+    public static void delete(Menu menu) throws SQLException, IOException {
         Connection connection = GetConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("delete from user where username = ?");
-        preparedStatement.setString(1,user.getUsername());
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from menu where id = ?");
+        preparedStatement.setInt(1,menu.getId());
         preparedStatement.executeUpdate();
     }
 
-    public static void update(User user) throws SQLException, IOException {
+    public static void update(Menu menu) throws SQLException, IOException {
         Connection connection = GetConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("update user  set password = ? ,mobile= ?,address=?,pincode=?,district=?,name=? where username = ?");
-        preparedStatement.setString(7,user.getUsername());
-        preparedStatement.setString(1,user.getPassword());
-        preparedStatement.setString(2,user.getMobile());
-        preparedStatement.setString(3,user.getAddress());
-        preparedStatement.setString(4,user.getPincode());
-        preparedStatement.setString(5,user.getDistrict());
-        preparedStatement.setString(6,user.getName());
+        PreparedStatement preparedStatement = connection.prepareStatement("update menu set title = ? ,sunday = ? ,monday = ? ,tuesday=?,wednesday=?,thursday=?,friday=?,saturday=?,price=?,url=? where id = ?");
+        preparedStatement.setString(1,menu.getTitle());
+        preparedStatement.setString(2,menu.getSunday());
+        preparedStatement.setString(3,menu.getMonday());
+        preparedStatement.setString(4,menu.getTuesday());
+        preparedStatement.setString(5,menu.getWednesday());
+        preparedStatement.setString(6,menu.getThursday());
+        preparedStatement.setString(7,menu.getFriday());
+        preparedStatement.setString(8,menu.getSaturday());
+        preparedStatement.setInt(9,menu.getPrice());
+        preparedStatement.setString(10,menu.getUrl());
+        preparedStatement.setInt(11,menu.getId());
         preparedStatement.executeUpdate();
     }
 

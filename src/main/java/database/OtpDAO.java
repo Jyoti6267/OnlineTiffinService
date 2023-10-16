@@ -72,6 +72,7 @@ public class OtpDAO {
     }
 
     private static Otp builder(ResultSet set) throws SQLException {
+        if (!set.next()) return null;
         Otp otp = new Otp();
         otp.setOtp(set.getString("otp"));
         otp.setExpires(set.getTimestamp("expires"));

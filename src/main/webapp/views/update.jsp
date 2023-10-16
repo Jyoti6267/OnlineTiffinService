@@ -3,15 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Registration - Online Tiffin Service</title>
+    <title>Update Profile - Online Tiffin Service</title>
     <link rel="stylesheet" href="css/registration.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-    <style>
-    #otpField {
-                display: none;
-            }
-    </style>
 </head>
 <body>
     <header>
@@ -41,7 +36,7 @@
 
     <section class="user-registration">
         <div class="container">
-            <h2 class="text-center">User Registration</h2>
+            <h2 class="text-center">Update Profile</h2>
             <form>
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
@@ -49,7 +44,7 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="username">
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="username" readonly>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
@@ -88,33 +83,16 @@
                 </div>
 
 
-
-                 <div id="otpField">
-                        <div class="form-group">
-                              <label for="otp">OTP</label>
-                                  <input type="text" class="form-control" id="otp" placeholder="Enter OTP">
-                          </div>
-                  </div>
-
-                <button type="button" class="btn btn-primary" id="getOTPButton" onclick = "otprequest()">Get OTP</button>
-
-                <br>
                 <br>
 
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </section>
     <footer class="bg-dark text-white text-center py-3" style="margin-top: 5%;">
         &copy; 2023 Online Tiffin Service
     </footer>
-    <script>
 
-
-
-
-
-    </script>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

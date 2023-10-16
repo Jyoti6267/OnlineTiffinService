@@ -3,9 +3,7 @@ package database;
 import database.entity.User;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UserDAO {
 
@@ -54,5 +52,33 @@ public class UserDAO {
         preparedStatement.setString(6,user.getName());
         preparedStatement.executeUpdate();
     }
+
+    public static boolean exists(User user) throws SQLException, IOException {
+        Connection connection = GetConnection.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet set = statement.executeQuery("select count(username) from user where username = '"+user.getUsername()+"'");
+        return set.next();
+    }
+    public static User get(String username) throws SQLException, IOException {
+        Connection connection = GetConnection.getConnection();
+        PreparedStatement statement = connection.prepareStatement("select * from user where username = ?");
+        statement.setString(1,username);
+        ResultSet set = statement.executeQuery();
+        return builder(set);
+    }
+
+    private static User builder(ResultSet set) throws SQLException {
+        if (!set.next()) return null;
+        User user  = new User();
+        user.setUsername(set.getString("username"));
+        user.setDistrict(set.getString("district"));
+        user.setMobile(set.getString("mobile"));
+        user.setAddress(set.getString("address"));
+        user.setName(set.getString("name"));
+        user.setPincode(set.getString("pincode"));
+        user.setPassword(set.getString("password"));
+        return user;
+    }
+
 
 }

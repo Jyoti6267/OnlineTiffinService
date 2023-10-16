@@ -1,7 +1,5 @@
 package utility;
 
-import database.GetConnection;
-
 import java.io.IOException;
 import java.util.Properties;
 
