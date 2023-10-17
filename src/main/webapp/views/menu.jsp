@@ -1,3 +1,5 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,13 +22,7 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="#">Profile</a>
                     </li>
                 </ul>
             </div>
@@ -36,6 +32,32 @@
     <section class="menu">
         <div class="container">
             <h2 class="text-center">Our Special Tiffin Menu</h2>
+
+            <c:forEach var = "menu" items="${menus}">
+                <div class="row">
+                    <c:forEach var = "m" items="${menu}">
+                        <div class="col-md-4">
+                            <div class="card mb-4 food-card">
+                                <img src="${m.url}" class="card-img-top" alt="${m.title}">
+                                <div class="card-body">
+                                    <h3 class="card-title">${m.title}</h3>
+                                    <p class="card-text">
+                                        <strong>Cost per Month:</strong> Rs. ${m.price}<br>
+                                    </p>
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#${m.title}">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
+            </c:forEach>
+
+
+
+
+
+
+
             <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-4 food-card">
