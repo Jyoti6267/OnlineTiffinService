@@ -6,7 +6,7 @@
     <title>User Registration - Online Tiffin Service</title>
     <link rel="stylesheet" href="css/registration.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+    <script src="js/registration.js"></script>
     <style>
     #otpField {
                 display: none;
@@ -26,13 +26,7 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +36,7 @@
     <section class="user-registration">
         <div class="container">
             <h2 class="text-center">User Registration</h2>
-            <form>
+            <form method="post">
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name">
@@ -96,26 +90,18 @@
                           </div>
                   </div>
 
-                <button type="button" class="btn btn-primary" id="getOTPButton" onclick = "otprequest()">Get OTP</button>
+                <button type="button" class="btn btn-primary" id="getOTPButton" onclick = "otprequest(event)">Get OTP</button>
 
                 <br>
                 <br>
 
-                <button type="submit" class="btn btn-primary">Register</button>
+                <button type="submit"  onsubmit="validate();"  class="btn btn-primary">Register</button>
             </form>
         </div>
     </section>
     <footer class="bg-dark text-white text-center py-3" style="margin-top: 5%;">
         &copy; 2023 Online Tiffin Service
     </footer>
-    <script>
-
-
-
-
-
-    </script>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 

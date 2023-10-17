@@ -9,6 +9,7 @@ import utility.PropertyHolder;
 import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MenuDAO {
@@ -155,6 +156,33 @@ public class MenuDAO {
         preparedStatement.setString(10,menu.getUrl());
         preparedStatement.setInt(11,menu.getId());
         preparedStatement.executeUpdate();
+    }
+
+    private static Menu builder(ResultSet set) throws SQLException {
+        Menu menu = new Menu();
+        menu.setUrl(set.getString("url"));
+        menu.setPrice(set.getInt("price"));
+        menu.setTitle(set.getString("title"));
+        menu.setSunday(set.getString("sunday"));
+        menu.setMonday(set.getString("monday"));
+        menu.setTuesday(set.getString("tuesday"));
+        menu.setWednesday(set.getString("wednesday"));
+        menu.setThursday(set.getString("thursday"));
+        menu.setFriday(set.getString("friday"));
+        menu.setSaturday(set.getString("saturday"));
+        menu.setId(set.getInt("id"));
+        return menu;
+    }
+
+    public static ArrayList<Menu> fetchAll() throws SQLException, IOException {
+        Connection connection = GetConnection.getConnection();
+        Statement statement = connection.createStatement();
+        ResultSet set = statement.executeQuery("select * from menu");
+        ArrayList<Menu> result = new ArrayList<>();
+        while (set.next()){
+            result.add(builder(set));
+        }
+        return result;
     }
 
 
