@@ -1,5 +1,6 @@
 package utility;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -9,7 +10,7 @@ public class PropertyHolder {
 
     static {
         try {
-            properties.load(PropertyHolder.class.getClassLoader().getResourceAsStream("/resources/configuration.properties"));
+            properties.load(new FileInputStream("/home/aniket/IdeaProjects/OnlineTiffinService/src/main/resources/configuration.properties"));
         } catch (IOException e) {
             e.printStackTrace();
         }
