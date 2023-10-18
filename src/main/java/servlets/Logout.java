@@ -4,17 +4,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class AdminSection extends HttpServlet {
-
-
-    private static void initializeData(HttpServletRequest request,HttpServletResponse response){
-
-    }
+public class Logout extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/views/admin_section.jsp").forward(req,resp);
+
+        HttpSession session = req.getSession();
+        session.removeAttribute("userDetails");
+        session.removeAttribute("username");
+        req.getRequestDispatcher("/home").forward(req,resp);
+
     }
 }

@@ -133,7 +133,7 @@
                               <h6 class="mb-0">Full Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              ${user.fName} ${user.lName}
+                              ${userDetails.name}
                             </div>
                           </div>
                           <hr>
@@ -142,7 +142,7 @@
                               <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              ${user.email}
+                              ${userDetails.username}
                             </div>
                           </div>
                           <hr>
@@ -152,7 +152,7 @@
                               <h6 class="mb-0">Mobile</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              ${user.mobile}
+                              ${userDetails.mobile}
                             </div>
                           </div>
                           <hr>
@@ -161,25 +161,18 @@
                               <h6 class="mb-0">Location</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              ${user.location}
+                              ${userDetails.address}
                             </div>
                           </div>
                           <hr>
-                          <div class="row">
-                            <div class="col-sm-3">
-                              <h6 class="mb-0">State</h6>
-                            </div>
-                            <div class="col-sm-9 text-secondary">
-                              ${user.state}
-                            </div>
-                          </div>
+                          
                           <hr>
                           <div class="row">
                             <div class="col-sm-3">
                               <h6 class="mb-0">District</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              ${user.district}
+                              ${userDetails.district}
                             </div>
                           </div>
                           <hr>
@@ -188,7 +181,7 @@
                               <h6 class="mb-0">Pincode</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                              ${user.pinCode}
+                              ${userDetails.pincode}
                             </div>
                           </div>
                           <hr>
