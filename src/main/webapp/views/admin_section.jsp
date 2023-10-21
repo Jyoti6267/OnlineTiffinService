@@ -1,3 +1,6 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,151 +40,105 @@
                     <thead>
                         <tr>
                             <th>Order ID</th>
-                            <th>Customer Name</th>
-                            <th>Delivery Address</th>
-                            <th>Delivery Time</th>
+                            <th>Username</th>
+                            <th>Address</th>
+                            <th>Pincode</th>
+                            <th>District</th>
+                            <th>Meal Type</th>
                             <th>Action</th>
+                            <th>Meal Details</th>
                         </tr>
                     </thead>
                     <tbody>
-
-                        <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-
-                        <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-
+                    
+                        <c:forEach var="order" items="${orders}">
                          <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
+                            <td>${order.order_id}</td>
+                            <td>${order.username}</td>
+                            <td>${order.address}</td>
+                            <td>${order.pincode}</td>
+                            <td>${order.district}</td>
+                            <td>${order.meal_type}</td>
+                            <td><button class="btn btn-success" data-toggle="modal" data-target="#${order.menu_id}">Dispatch</button>
+                            </td>
+                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Check</button>
                             </td>
                         </tr>
+                        </c:forEach>
 
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-                         <tr>
-                            <td>1</td>
-                            <td>Jyoti</td>
-                            <td>123 Main St, City</td>
-                            <td>12:00 PM</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Dispatch</button>
-                            </td>
-                        </tr>
-
-
+                     
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
-    <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+    
+
+
+
+    <c:forEach var="m" items="${menus}">
+
+    <div class="modal fade" id="${m.id}" tabindex="-1" role="dialog" aria-labelledby="${m.id}Label" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="confirmationModalLabel">Confirmation</h5>
+                    <h5 class="modal-title" id="tiffinDetailsModal1Label">Details for ${m.title}</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to dispatch this order?
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Weekday</th>
+                                <th>Menu</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sunday</td>
+                                <td>${m.sunday}</td>
+                            </tr>
+                            <tr>
+                                <td>Monday</td>
+                                <td>${m.monday}</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td>${m.tuesday}</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td>${m.wednesday}</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td>${m.thursday}</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td>${m.friday}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Saturday</td>
+                                <td>${m.saturday}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success">Confirm Dispatch</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
                 </div>
             </div>
         </div>
     </div>
+
+    </c:forEach>
+
+
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 

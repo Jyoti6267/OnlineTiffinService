@@ -68,6 +68,15 @@
         <url-pattern>/payment</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AdminLogin</servlet-name>
+        <servlet-class>servlets.AdminLogin</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminLogin</servlet-name>
+        <url-pattern>/admin_login</url-pattern>
+    </servlet-mapping>
+
 
     <servlet>
         <servlet-name>MealRegistration</servlet-name>

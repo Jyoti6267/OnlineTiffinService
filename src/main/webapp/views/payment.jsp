@@ -5,7 +5,7 @@
     <title>Payment Page</title>
     <link rel="stylesheet" href="css/payment.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+    <script src="js/payment.js"></script>
 
 </head>
 <body>
@@ -23,12 +23,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Menu</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
-                    </li>
+                    
                 </ul>
             </div>
         </nav>
@@ -37,14 +32,14 @@
     <section class="payment-form">
         <div class="container">
             <h2 class="text-center">Payment Details</h2>
-            <form id="paymentForm">
+            <form id="paymentForm" onsubmit="return validate();">
                 <div class="form-group">
                     <label for="cardNumber">Card Number</label>
                     <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number" required>
                 </div>
                 <div class="form-group">
                     <label for="expirationDate">Expiration Date</label>
-                    <input type="text" class="form-control" id="expirationDate" placeholder="MM/YY" required>
+                    <input type="month" class="form-control" id="expirationDate" placeholder="YYYY-MM" required>
                 </div>
                 <div class="form-group">
                     <label for="cvv">CVV</label>
@@ -52,50 +47,84 @@
                 </div>
                 <div class="form-group">
                     <label for="amount">Amount</label>
-                    <input type="text" class="form-control" id="amount" placeholder="Enter the amount" required>
+                    <input type="text" class="form-control" id="amount" placeholder="Enter the amount" value = "${menu.price}" readonly>
                 </div>
+
+                <input type="hidden" class="form-control" id="actual_amount" value = "${menu.price}">
+
+               
+                <div class="form-group" style="width:35%">
+                    <label for="days">Days</label>
+                    <select class="form-control" id="days" name="days">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+
+                    </select>
+                </div>
+
+
+
+
+                <input type="hidden" class="form-control" id="menu_id" value="${menu.id}">
+
+                <br>
+
                 <button type="submit" class="btn btn-primary">Pay Now</button>
             </form>
         </div>
     </section>
 
-    <!-- Modal for Payment Success -->
-    <div class="modal fade" id="paymentSuccessModal" tabindex="-1" role="dialog" aria-labelledby="paymentSuccessModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="paymentSuccessModalLabel">Payment Successful</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Your payment of <span id="paymentAmount"></span> has been successfully processed.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+   
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const paymentForm = document.getElementById("paymentForm");
-            const paymentSuccessModal = document.getElementById("paymentSuccessModal");
-            const paymentAmount = document.getElementById("paymentAmount");
+       
 
-            paymentForm.addEventListener("submit", function (e) {
-                e.preventDefault();
+        let days = document.getElementById("days");
+        
+        days.onchange = function(event){
+            let target = evenet.target;
+            let d = target.options[e.selectedIndex].value;
 
-                // Simulate payment processing
-                setTimeout(function () {
-                    const amount = document.getElementById("amount").value;
-                    paymentAmount.textContent = "Rs." + amount;
-                    $('#paymentSuccessModal').modal('show');
-                }, 1000);
-            });
-        });
+            let amount = document.getElementById("amount");
+
+            let acutal_amount = document.getElementById("actual_amount");
+
+            actual_amount = Number(acutal_amount.value);
+
+            amount.value = Math.ceil((actual_amount/30)*d);
+
+        };
+
+
+
     </script>
 
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
