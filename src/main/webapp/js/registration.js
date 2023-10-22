@@ -1,10 +1,14 @@
-function validatePassword(password){
+function validatePassword(){
+
+    let pas = document.getElementById("password");
+
+    password = pas.value;
 
     password == password == null ? null : password.trim();
 
     if(password == null || password.length() < 5 ) {
      
-        let pas = document.getElementById("password");
+        
 
         pas.style.borderColor = "red";
 
@@ -13,17 +17,25 @@ function validatePassword(password){
         return false;
     }
 
+    pas.style.borderColor = "gray";
+
+    pas.placeholder = "Enter your password";
+
     return true;
 
 }
 
-function validateAddress(address){
+function validateAddress(){
+
+    let ad = document.getElementById("address");
+
+    address = ad.value; 
 
     address = address == null ? null : address.trim();
 
     if(address == null || address.length() == 0 ) {
         
-        let ad = document.getElementById("address");
+        
 
         ad.style.borderColor = "red";
 
@@ -32,18 +44,26 @@ function validateAddress(address){
         return false;
     }
 
+    ad.style.borderColor = "gray";
+
+    ad.placeholder = "Enter your address";
+
     return true;
 
 }
 
-function validateFullName(name){
+function validateFullName(){
+
+
+    let fName = document.getElementById("name");
+
+    let name = fName.value;
 
     name = name == null ? null : name.trim();
 
     if(name == null || name.length() == 0 ) {
 
 
-        let fName = document.getElementById("name");
 
         fName.style.borderColor = "red";
 
@@ -52,20 +72,29 @@ function validateFullName(name){
         
         return false;
 
+
     }
+
+    fName.style.borderColor = "gray";
+
+    fName.placeholder = "Enter your full name";
 
     return true;
 
 }
 
-function validatePinCode(code){
+function validatePinCode(){
+
+    let pin = document.getElementById("pincode");
+
+    let code = pin.value;
+    
 
     code = code == null ? null : code.trim();
 
     if(code == null || code.length() != 6 ) { 
      
         
-        let pin = document.getElementById("pincode");
 
         pin.style.borderColor = "red";
 
@@ -94,6 +123,11 @@ function validatePinCode(code){
     }
 
 
+    pin.style.borderColor = "gray";
+
+    pin.placeholder = "Enter Pin Code";
+
+
     return true;
 
 }
@@ -102,20 +136,34 @@ function validatePinCode(code){
 function validate(){
 
 
-    return validateFullName() && validateAddress() && validatePassword() && validatePinCode();
+    let a = validateFullName() ;
+    let b =  validateAddress() ;
+    let c =  validatePassword() ;
+    let d =  validatePinCode();
+    return a && b && c && d;
 
 }
 
+
+function toast(message){
+
+    let snackbar = document.getElementById("snackbar");
+
+    snackbar.innerText = message;
+
+    myFunction();
+
+}
 
 function validateEmail(email){
 
     email = email == null ? null : email.trim();
 
-    if(email.length()<3) return false;
+    if(email.length<3) return false;
 
-    for(let i = 0 ; i < email.length();i++){
+    for(let i = 0 ; i < email.length;i++){
 
-        if(email[i]=='@' && email.length() - 1 - i >= 1 ) return true;
+        if(email[i]=='@' && email.length - 1 - i >= 1 ) return true;
 
     }
 
@@ -130,11 +178,13 @@ function otprequest(event) {
 
     let email_id = document.getElementById("email").value;
 
+    let url = document.getElementById("link").value;
+
     let status = validateEmail(email_id);
     
     if(status){
 
-    let promise = fetch("http://"+window.location.host+"/otp_request?email="+email_id);
+    let promise = fetch(url+"?email="+email_id);
 
     promise.then((response)=>{
         if(response.ok){
@@ -152,6 +202,9 @@ function otprequest(event) {
 
     
     
+    }
+    else {
+        toast("Email is not valid");
     }
 
 }

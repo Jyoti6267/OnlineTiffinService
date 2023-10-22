@@ -1,3 +1,5 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +8,8 @@
     <link rel="stylesheet" href="css/payment.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="js/payment.js"></script>
-
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/toast.js"></script>
 </head>
 <body>
     <header>
@@ -32,7 +35,7 @@
     <section class="payment-form">
         <div class="container">
             <h2 class="text-center">Payment Details</h2>
-            <form id="paymentForm" onsubmit="return validate();">
+            <form id="paymentForm" method="POST" action="payment_handler">
                 <div class="form-group">
                     <label for="cardNumber">Card Number</label>
                     <input type="text" class="form-control" id="cardNumber" placeholder="Enter card number" required>
@@ -97,7 +100,7 @@
 
                 <br>
 
-                <button type="submit" class="btn btn-primary">Pay Now</button>
+                <input type="submit"  onclick="return validate();" class="btn btn-primary" value="Pay Now"></input>
             </form>
         </div>
     </section>
@@ -126,6 +129,20 @@
 
 
     </script>
+
+<c:if test="${message!= null}">
+
+    <div id="snackbar">${message}</div>
+    
+    <script>
+    
+    myFunction();
+    
+    
+    </script>
+    
+    
+</c:if>
 
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

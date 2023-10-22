@@ -1,3 +1,4 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
 <html lang="en">
 <head>
@@ -7,6 +8,8 @@
     <link rel="stylesheet" href="css/registration.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="js/registration.js"></script>
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/toast.js"></script>
     <style>
     #otpField {
                 display: none;
@@ -14,6 +17,9 @@
     </style>
 </head>
 <body>
+
+    <input type = hidden value="${link}" id="link">
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Online Tiffin Service</a>
@@ -99,6 +105,22 @@
             </form>
         </div>
     </section>
+
+    <div id="snackbar"></div>
+
+    <c:if test="${message!= null}">
+
+        
+        
+        <script>
+        
+        myFunction("${message}");
+        
+        
+        </script>
+        
+        
+    </c:if>
     <footer class="bg-dark text-white text-center py-3" style="margin-top: 5%;">
         &copy; 2023 Online Tiffin Service
     </footer>

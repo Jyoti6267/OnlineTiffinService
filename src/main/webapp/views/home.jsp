@@ -1,3 +1,5 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,6 +7,8 @@
     <title>Online Tiffin Service</title>
     <link rel="stylesheet" href="css/home.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/toast.js"></script>
 </head>
 <body>
     <header>
@@ -16,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="menu">Menu</a>
@@ -36,7 +40,7 @@
         <div class="container text-center">
             <h1 class="display-4">Delicious Tiffin Meals Delivered to Your Doorstep</h1>
             <p class="lead">Order your favorite meals online and enjoy the convenience of homemade food.</p>
-            <a href="#" class="btn btn-primary btn-lg">Order Now</a>
+            <a href="menu" class="btn btn-primary btn-lg">Order Now</a>
         </div>
     </section>
 
@@ -126,6 +130,20 @@
 
         </div>
     </section>
+
+    <c:if test="${message!= null}">
+
+        <div id="snackbar">${message}</div>
+        
+        <script>
+        
+        myFunction();
+        
+        
+        </script>
+        
+        
+    </c:if>
 
     <footer class="bg-dark text-white text-center py-3">
         &copy; 2023 Online Tiffin Service

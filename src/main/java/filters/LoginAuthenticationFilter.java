@@ -16,7 +16,7 @@ public class LoginAuthenticationFilter implements Filter {
 
     private boolean authenticate(String username , String password,HttpServletRequest request) {
         if (username == null || password == null) {
-            request.setAttribute("message","Authentication Failed");
+            //request.setAttribute("message","Authentication Failed");
             return false;
 
         }
@@ -67,7 +67,10 @@ public class LoginAuthenticationFilter implements Filter {
                 session.setAttribute("username",username);
                 filterChain.doFilter(request,response);
             }
-            else response.sendRedirect(path(request,"/login?message="+request.getAttribute("message")));
+            else {
+                String message = (String)request.getAttribute("message");
+                response.sendRedirect(path(request,"/login"+(message!=null?"?message="+message:"")));
+            }
         }
 
     }

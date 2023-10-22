@@ -13,6 +13,8 @@ public class Registration extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String link = req.getScheme()+"://"+req.getServerName()+":"+req.getLocalPort()+req.getServletContext().getContextPath()+"/otp_request";
+        req.setAttribute("link",link);
         req.getRequestDispatcher("/views/registration.jsp").forward(req,resp);
     }
 

@@ -32,6 +32,7 @@ public class OtpDAO {
             return otp;
         }
         catch (Exception exception){
+            System.out.println(exception);
             return null;
         }
     }

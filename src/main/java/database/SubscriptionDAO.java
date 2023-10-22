@@ -1,5 +1,8 @@
 package database;
 import database.entity.Subscription;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -34,6 +37,34 @@ public class SubscriptionDAO {
         preparedStatement.setInt(5,subscription.getId());
         preparedStatement.executeUpdate();
     }
+
+    public static Subscription builder(HttpServletRequest request){
+
+        try {
+            Subscription subscription = new Subscription();
+            String days = request.getParameter("days");
+            if (days == null) return null;
+            subscription.setDays(Integer.parseInt(days));
+            String menu_id = request.getParameter("menu_id");
+            if (menu_id == null) return null;
+            subscription.setMenu_id(Integer.parseInt(menu_id));
+            HttpSession session = request.getSession();
+            String username = (String) session.getAttribute("username");
+            if (username == null) return null;
+            subscription.setUsername(username);
+            Date current_date = new Date(System.currentTimeMillis());
+            subscription.setOrder_date(current_date);
+            return subscription;
+        }
+        catch (Exception exception){
+            return null;
+        }
+
+
+
+    }
+
+
 
     public static class UnprocessedOrder{
         private String meal_type;

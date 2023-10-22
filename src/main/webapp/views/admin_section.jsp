@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="css/admin_section.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/toast.js"></script>
 </head>
 <body>
     <header>
@@ -142,6 +144,20 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+
+    <c:if test="${message!= null}">
+
+        <div id="snackbar">${message}</div>
+        
+        <script>
+        
+        myFunction();
+        
+        
+        </script>
+        
+        
+    </c:if>
 
 
     <footer class="bg-dark text-white text-center py-3">

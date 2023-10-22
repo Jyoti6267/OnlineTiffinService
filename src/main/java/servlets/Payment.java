@@ -16,9 +16,8 @@ public class Payment extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        int menu_id = Integer.parseInt(req.getParameter("menu_id"));
-
         try{
+            int menu_id = Integer.parseInt(req.getParameter("menu_id"));
             database.entity.Menu menu = MenuDAO.get(menu_id);
             if (menu == null){
                 req.setAttribute("message","Invalid Plan");

@@ -72,7 +72,10 @@ public class AdminLoginAuthenticationFilter implements Filter {
                 session.setAttribute("admin",username);
                 filterChain.doFilter(request,response);
             }
-            else response.sendRedirect(path(request,"/admin_login?message="+request.getAttribute("message")));
+            else {
+                String message = (String)request.getAttribute("message");
+                response.sendRedirect(path(request,"/admin_login"+(message!=null?"?message="+message:"")));
+            }
         }
 
     }

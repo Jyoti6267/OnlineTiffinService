@@ -1,8 +1,10 @@
-function validateCard(card_number){
+function validateCard(){
 
     let card = document.getElementById("cardNumber");
 
-    if(card_number.length()!=12){
+    let card_number = card.value;
+
+    if(card_number.length!=12){
 
         card.style.borderColor = "red";
 
@@ -29,6 +31,11 @@ function validateCard(card_number){
 
         }
 
+
+        card.style.borderColor = "gray";
+
+        card.placeholder = "Enter card number";
+
         return true;
 
 
@@ -36,11 +43,13 @@ function validateCard(card_number){
 
 }
 
-function validateCVV(cvv_number){
+function validateCVV(){
 
     let cvv = document.getElementById("cvv");
 
-    if(cvv_number.length()!=3){
+    let cvv_number = cvv.value;
+
+    if(cvv_number.length!=3){
 
         cvv.style.borderColor = "red";
 
@@ -67,6 +76,11 @@ function validateCVV(cvv_number){
 
         }
 
+        cvv.style.borderColor = "gray";
+
+        cvv.placeholder = "CVV";
+
+
         return true;
 
 
@@ -77,9 +91,7 @@ function validateCVV(cvv_number){
 
 function validate(){
 
-
-    console.log("Hello world");
-    
-
-    return validateCard() && validateCVV();
+    let a = validateCard();
+    let b = validateCVV();
+    return a && b;
 }

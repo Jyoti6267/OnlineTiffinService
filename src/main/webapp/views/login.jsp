@@ -1,4 +1,10 @@
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 
+<%
+
+request.setAttribute("message",request.getParameter("message"));
+
+%>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +12,8 @@
     <title>User Login - Online Tiffin Service</title>
     <link rel="stylesheet" href="css/login.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/toast.css">
+    <script src="js/toast.js"></script>
 </head>
 <body>
     <header>
@@ -51,6 +59,21 @@
             </form>
         </div>
     </section>
+
+    <c:if test="${message!= null}">
+
+        <div id="snackbar">${message}</div>
+        
+        <script>
+        
+        myFunction();
+        
+        
+        </script>
+        
+        
+    </c:if>
+
     <footer class="bg-dark text-white text-center py-3" style="margin-top: 15%;">
         &copy; 2023 Online Tiffin Service
     </footer>

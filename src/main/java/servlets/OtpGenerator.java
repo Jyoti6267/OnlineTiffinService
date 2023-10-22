@@ -47,11 +47,16 @@ public class OtpGenerator extends HttpServlet {
 
             Otp otp = OtpDAO.generate(email);
 
-            boolean status = prepareMail(email,otp.getOtp());
+            if(otp == null){
+                resp.setStatus(400);
+            }
 
-            if (otp != null && status) resp.setStatus(200);
+            else {
 
-            else resp.setStatus(400);
+                boolean status = prepareMail(email, otp.getOtp());
+                if (status) resp.setStatus(200);
+                else resp.setStatus(400);
+            }
 
         }
 
