@@ -25,16 +25,11 @@ request.setAttribute("message",request.getParameter("message"));
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="home">Home</a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="register">Register</a>
                     </li>
                 </ul>
             </div>
@@ -44,18 +39,18 @@ request.setAttribute("message",request.getParameter("message"));
     <section class="user-registration">
         <div class="container">
             <h2 class="text-center">User Login</h2>
-            <form>
+            <form method="post" action="profile">
 
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                    <input type="email" class="form-control" name="username" id="email" placeholder="Enter your email address">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Login</button>
+                <input type="submit" class="btn btn-primary" value="Login"></input>
             </form>
         </div>
     </section>

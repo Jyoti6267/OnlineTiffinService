@@ -29,10 +29,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="login">Login</a>
                     </li>
                 </ul>
             </div>
@@ -42,18 +42,18 @@
     <section class="user-registration">
         <div class="container">
             <h2 class="text-center">User Registration</h2>
-            <form method="post">
+            <form method="post" action="registration">
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name">
+                    <input type="text" class="form-control" id="name"  value="${user.name}" placeholder="Enter your full name" name="name">
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="username">
+                    <input type="email" class="form-control" id="email" value="${user.username}" placeholder="Enter your email address" name="username">
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="Enter your address" name="address">
+                    <input type="text" class="form-control" id="address"  value="${user.address}" placeholder="Enter your address" name="address">
                 </div>
                 <div class="form-group">
                     <label for="district">District</label>
@@ -76,11 +76,11 @@
                 </div>
                 <div class="form-group">
                     <label for="address">Pin Code</label>
-                    <input type="text" class="form-control" id="pincode" placeholder="Enter Pin Code" name="pincode">
+                    <input type="text" class="form-control" id="pincode" name="${user.pincode}" placeholder="Enter Pin Code" name="pincode">
                 </div>
                 <div class="form-group">
                     <label for="mobile">Mobile Number</label>
-                    <input type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number" name="mobile">
+                    <input type="tel" class="form-control" id="mobile" name="${user.mobile}" placeholder="Enter your mobile number" name="mobile">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -92,7 +92,7 @@
                  <div id="otpField">
                         <div class="form-group">
                               <label for="otp">OTP</label>
-                                  <input type="text" class="form-control" id="otp" placeholder="Enter OTP">
+                                  <input type="password" class="form-control" id="otp" placeholder="Enter OTP" name="otp">
                           </div>
                   </div>
 
@@ -101,7 +101,7 @@
                 <br>
                 <br>
 
-                <button type="submit"  onsubmit="validate();"  class="btn btn-primary">Register</button>
+                <input type="submit"  onclick="return validate();"  class="btn btn-primary" value="Register"></input>
             </form>
         </div>
     </section>
@@ -114,7 +114,7 @@
         
         <script>
         
-        myFunction("${message}");
+        toast("${message}")
         
         
         </script>

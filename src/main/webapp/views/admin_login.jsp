@@ -25,7 +25,7 @@ request.setAttribute("message",request.getParameter("message"));
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a class="nav-link" href="home">Home</a>
                         </li>
                     </ul>
                 </div>
@@ -35,18 +35,18 @@ request.setAttribute("message",request.getParameter("message"));
         <section class="user-registration">
             <div class="container">
                 <h2 class="text-center">Admin Login</h2>
-                <form>
+                <form method="post" action="admin_section">
     
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" class="form-control" id="email" placeholder="Enter your email address">
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="username">
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" class="form-control" id="password" placeholder="Enter your password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
                     </div>
     
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <input type="submit" value="Login" class="btn btn-primary"></input>
                 </form>
             </div>
         </section>

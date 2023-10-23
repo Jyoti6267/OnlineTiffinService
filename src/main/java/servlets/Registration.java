@@ -67,6 +67,7 @@ public class Registration extends HttpServlet {
         if (canRegister(user,req)){
             register(user,req);
         }
+        req.setAttribute("user",user);
         doGet(req,resp);
     }
 }

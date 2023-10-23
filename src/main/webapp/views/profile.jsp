@@ -63,8 +63,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="toast.js"></script>
-    <link rel="stylesheet" href="toast.css">
+    <script src="js/toast.js"></script>
+    <link rel="stylesheet" href="css/toast.css">
     <link rel="stylesheet" href="css/profile.css">
     <title>Profile</title>
 
@@ -80,16 +80,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="menu">Menu</a>
                     </li>
                 </ul>
             </div>
@@ -108,21 +102,21 @@
                       <div class="card mt-3">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                                <a href="animal_section" style="text-decoration:none ;color:black;height:100%;width:100%;"><button class="btn btn-warning" style="height:100%;width:100%"><i class="	fa fa-hand-o-right"></i>Update Profile</button></a>
+                                <a href="update" style="text-decoration:none ;color:black;height:100%;width:100%;"><button class="btn btn-warning" style="height:100%;width:100%"><i class="	fa fa-hand-o-right"></i>Update Profile</button></a>
                               </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                            <a href="animal_section" style="text-decoration:none ;color:black;height:100%;width:100%;"><button class="btn btn-primary" style="height:100%;width:100%"><i class="	fa fa-hand-o-right"></i>Menu</button></a>
+                            <a href="menu" style="text-decoration:none ;color:black;height:100%;width:100%;"><button class="btn btn-primary" style="height:100%;width:100%"><i class="	fa fa-hand-o-right"></i>Menu</button></a>
                           </li>
                           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                             <a href="logout" style="text-decoration:none;color:black;height:100%;width:100%;"><button class="btn btn-warning" style="height:100%;width:100%"><i class="fa fa-sign-out"></i> Log out</button></a>
                           </li>
 
                           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                            <a href="animal_section" style="text-decoration:none ;color:black;height:100%;width:100%;"><button class="btn btn-primary" style="height:100%;width:100%"><i class="	fa fa-hand-o-right"></i>Transaction History</button></a>
+                            <a href="history" style="text-decoration:none ;color:black;height:100%;width:100%;"><button class="btn btn-primary" style="height:100%;width:100%"><i class="	fa fa-hand-o-right"></i>Transaction History</button></a>
                           </li>
 
                           <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                            <a href="delete_user" style="text-decoration:none; color:black;height:100%;width:100%;"><button class="btn btn-danger" style="height:100%;width:100%">&#10005; Delete Account</button></a>
+                            <a href="delete" style="text-decoration:none; color:black;height:100%;width:100%;"><button class="btn btn-danger" style="height:100%;width:100%">&#10005; Delete Account</button></a>
                           </li>
                         </ul>
                       </div>

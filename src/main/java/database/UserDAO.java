@@ -56,7 +56,7 @@ public class UserDAO {
     public static boolean exists(User user) throws SQLException, IOException {
         Connection connection = GetConnection.getConnection();
         Statement statement = connection.createStatement();
-        ResultSet set = statement.executeQuery("select count(username) from user where username = '"+user.getUsername()+"'");
+        ResultSet set = statement.executeQuery("select * from user where username = '"+user.getUsername()+"'");
         return set.next();
     }
     public static User get(String username) throws SQLException, IOException {

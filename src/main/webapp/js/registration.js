@@ -6,7 +6,7 @@ function validatePassword(){
 
     password == password == null ? null : password.trim();
 
-    if(password == null || password.length() < 5 ) {
+    if(password == null || password.length < 5 ) {
 
         pas.style.borderColor = "red";
 
@@ -31,7 +31,7 @@ function validateAddress(){
 
     address = address == null ? null : address.trim();
 
-    if(address == null || address.length() == 0 ) {
+    if(address == null || address == 0 ) {
         
         
 
@@ -59,7 +59,7 @@ function validateFullName(){
 
     name = name == null ? null : name.trim();
 
-    if(name == null || name.length() == 0 ) {
+    if(name == null || name.length == 0 ) {
 
 
 
@@ -90,7 +90,7 @@ function validatePinCode(){
 
     code = code == null ? null : code.trim();
 
-    if(code == null || code.length() != 6 ) { 
+    if(code == null || code.length != 6 ) {
      
         
 
@@ -131,6 +131,27 @@ function validatePinCode(){
 }
 
 
+function validateOtp(){
+
+    let otp = document.getElementById("otp").value;
+
+    if(otp == null){
+
+        toast("Please enter OTP");
+        return false;
+    }
+    else {
+
+        if(otp.length != 6) {
+            toast("Otp is not valid");
+            return false;
+        }
+        else return true;
+
+    }
+
+}
+
 function validate(){
 
 
@@ -138,7 +159,8 @@ function validate(){
     let b =  validateAddress() ;
     let c =  validatePassword() ;
     let d =  validatePinCode();
-    return a && b && c && d;
+    let e =  validateOtp();
+    return a && b && c && d && e;
 
 }
 

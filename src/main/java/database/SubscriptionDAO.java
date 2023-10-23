@@ -137,7 +137,7 @@ public class SubscriptionDAO {
     public static ArrayList<UnprocessedOrder> fetchAllUnprocessedOrders() throws SQLException, IOException {
         Connection connection = GetConnection.getConnection();
         Statement statement = connection.createStatement();
-        ResultSet set = statement.executeQuery("select * from (select \"Breakfast\" as Meal union select \"Lunch\" union select \"Dinner\") as food_type  , (select *   from subscription , user  where  user.username = subscription.username and order_date + interval days day <= current_date()) as unprocessed where (unprocessed.order_id,food_type.Meal,current_date()) not in (select * from dispatched(order_id,meal_type,date_))");
+        ResultSet set = statement.executeQuery("select * from (select \"Breakfast\" as Meal union select \"Lunch\" union select \"Dinner\") as food_type  , (select address,district,menu_id,subscription.id as order_id,user.username as username,pincode   from subscription , user  where  user.username = subscription.username and order_date + interval days day <= current_date()) as unprocessed where (unprocessed.order_id,food_type.Meal,current_date()) not in (select order_id,meal_type,date_ from dispatched)");
         ArrayList<UnprocessedOrder> orders = new ArrayList<>();
         while(set.next()){
             UnprocessedOrder unprocessedOrder = new UnprocessedOrder();
@@ -146,7 +146,7 @@ public class SubscriptionDAO {
             unprocessedOrder.setDistrict(set.getString("district"));
             unprocessedOrder.setPincode(set.getString("pincode"));
             unprocessedOrder.setMenu_id(set.getInt("menu_id"));
-            unprocessedOrder.setUsername(set.getString("subscription.username"));
+            unprocessedOrder.setUsername(set.getString("username"));
             unprocessedOrder.setMeal_type(set.getString("meal_type"));
             orders.add(unprocessedOrder);
         }

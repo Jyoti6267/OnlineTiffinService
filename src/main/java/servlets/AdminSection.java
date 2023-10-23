@@ -19,6 +19,7 @@ public class AdminSection extends HttpServlet {
             request.setAttribute("orders",orders);
             request.setAttribute("menus",menus);
         } catch (Exception e) {
+            e.printStackTrace();
             request.setAttribute("message","Failed to fetch orders");
         }
 
@@ -28,5 +29,10 @@ public class AdminSection extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         initializeData(req);
         req.getRequestDispatcher("/views/admin_section.jsp").forward(req,resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req,resp);
     }
 }
