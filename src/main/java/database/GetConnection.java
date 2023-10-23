@@ -1,5 +1,6 @@
 package database;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
@@ -20,7 +21,7 @@ public class GetConnection {
 
     private static void initializeProperty() throws IOException {
 
-        InputStream stream = GetConnection.class.getClassLoader().getResourceAsStream("/resources/connection_info.properties");
+        InputStream stream = new FileInputStream("/home/aniket/IdeaProjects/OnlineTiffinService/src/main/resources/connection_info.properties");
         properties.load(stream);
         prefix = properties.getProperty("prefix");
         username =  properties.getProperty("username");

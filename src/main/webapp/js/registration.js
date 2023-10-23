@@ -7,8 +7,6 @@ function validatePassword(){
     password == password == null ? null : password.trim();
 
     if(password == null || password.length() < 5 ) {
-     
-        
 
         pas.style.borderColor = "red";
 
@@ -159,11 +157,11 @@ function validateEmail(email){
 
     email = email == null ? null : email.trim();
 
-    if(email.length<3) return false;
+    if(email == null || email.length<3) return false;
 
     for(let i = 0 ; i < email.length;i++){
 
-        if(email[i]=='@' && email.length - 1 - i >= 1 ) return true;
+        if(email[i]=='@' && email.length - 1 - i >= 1 && i >0  ) return true;
 
     }
 
@@ -193,7 +191,7 @@ function otprequest(event) {
 
             otp.style.display="block";
             
-            toast("Otp is send successfully");
+            toast("Otp is sent successfully");
         }
         else{
             toast("Not able to send OTP");

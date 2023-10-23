@@ -17,20 +17,13 @@ public class OtpGenerator extends HttpServlet {
     private boolean prepareMail(String email , String otp)  {
         String body = "<font color=\"blue\"><h2>Hello "+email+",</h2></font><br><br>\n" +
                 "<div style=\"box-shadow: 0px 0px 10px 10px pink; padding: 10px;\">\n" +
-                "<h3>The OTP is "+otp+" for the verification<br>\n" +
-                "<h4>Sent By : </h4>\n" +
+                "<h3>The OTP is "+otp+" for the verification.<br><br><br>" +
+                "<h4>Sent By : </h4>" +
                 "<h4>OnlineTiffinService Team</h4>\n" +
                 "</div>\n";
         String subject = "Email Verification : OTP";
         String from = PropertyHolder.getValue("from");
-        try {
-            EmailService.sendMail(from, email, subject, body);
-            return true;
-        }
-        catch (Exception e){
-            return false;
-        }
-
+        return EmailService.sendMail(from, email, subject, body);
 
     }
 
@@ -48,6 +41,7 @@ public class OtpGenerator extends HttpServlet {
             Otp otp = OtpDAO.generate(email);
 
             if(otp == null){
+                OtpDAO.cleanup(email);
                 resp.setStatus(400);
             }
 
@@ -55,7 +49,10 @@ public class OtpGenerator extends HttpServlet {
 
                 boolean status = prepareMail(email, otp.getOtp());
                 if (status) resp.setStatus(200);
-                else resp.setStatus(400);
+                else {
+                    OtpDAO.cleanup(email);
+                    resp.setStatus(400);
+                }
             }
 
         }

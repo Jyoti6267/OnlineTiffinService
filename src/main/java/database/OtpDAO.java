@@ -17,7 +17,7 @@ public class OtpDAO {
                 Timestamp current = new Timestamp(System.currentTimeMillis());
                 boolean expired = current.compareTo(otp.getExpires()) >= 0;
                 if (expired) {
-                    delete(otp);
+                    cleanup(email);
                     otp = builder(email);
                     insert(otp);
                 } else {
@@ -34,6 +34,17 @@ public class OtpDAO {
         catch (Exception exception){
             System.out.println(exception);
             return null;
+        }
+    }
+
+    public static  void cleanup(String username){
+        try {
+            Connection connection = GetConnection.getConnection();
+            Statement statement = connection.createStatement();
+            statement.executeUpdate("delete from otp where username = '"+username+"'");
+        }
+        catch (Exception exception){
+
         }
     }
 
@@ -73,7 +84,6 @@ public class OtpDAO {
     }
 
     private static Otp builder(ResultSet set) throws SQLException {
-        if (!set.next()) return null;
         Otp otp = new Otp();
         otp.setOtp(set.getString("otp"));
         otp.setExpires(set.getTimestamp("expires"));
@@ -87,7 +97,7 @@ public class OtpDAO {
         Connection connection = GetConnection.getConnection();
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("select * from otp where username = '"+email+"'");
-        if (resultSet.next()) return null;
+        if (!resultSet.next()) return null;
         return builder(resultSet);
     }
 

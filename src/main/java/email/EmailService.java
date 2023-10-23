@@ -2,6 +2,8 @@
 package email;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
+
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -14,7 +16,7 @@ public class EmailService {
     static{
 
         try {
-            properties.load(EmailService.class.getResourceAsStream("/resources/email_config.properties"));
+            properties.load(new FileInputStream("/home/aniket/IdeaProjects/OnlineTiffinService/src/main/resources/email_config.properties"));
             username = properties.getProperty("username");
             password = properties.getProperty("password");
         } catch (IOException e) {
@@ -23,7 +25,7 @@ public class EmailService {
 
     }
 
-    public static boolean sendMail(String from , String to , String subject,String body) throws MessagingException {
+    public static boolean sendMail(String from , String to , String subject,String body) {
 
         Session session = Session.getInstance(properties, new Authenticator() {
             @Override
@@ -32,19 +34,25 @@ public class EmailService {
             }
         });
 
-        Message message = new MimeMessage(session);
-        message.setFrom(new InternetAddress(from));
-        message.setRecipients(
-                Message.RecipientType.TO, InternetAddress.parse(to));
-        message.setSubject(subject);
-        MimeBodyPart mimeBodyPart = new MimeBodyPart();
-        mimeBodyPart.setContent(body, "text/html; charset=utf-8");
-        Multipart multipart = new MimeMultipart();
-        multipart.addBodyPart(mimeBodyPart);
-        message.setContent(multipart);
-        Transport.send(message);
+        try {
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));
+            message.setRecipients(
+                    Message.RecipientType.TO, InternetAddress.parse(to));
+            message.setSubject(subject);
+            MimeBodyPart mimeBodyPart = new MimeBodyPart();
+            mimeBodyPart.setContent(body, "text/html; charset=utf-8");
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(mimeBodyPart);
+            message.setContent(multipart);
+            Transport.send(message);
 
 
-        return true;
+            return true;
+        }
+        catch (Exception exception){
+            return false;
+        }
     }
 }
