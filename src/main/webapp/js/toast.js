@@ -3,7 +3,10 @@
 
 function myFunction() {
   
-    if(performance.navigation.type == 2) return;
+    const entries = performance.getEntriesByType("navigation");
+    entries.forEach((entry) => {
+       if(entry.type=="back_forward") return;
+    });
 
 
     var x = document.getElementById("snackbar");

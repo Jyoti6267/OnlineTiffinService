@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Profile extends HttpServlet {
 
 
-    private static void initializeData(HttpServletRequest request,HttpServletResponse response) throws IOException {
+    private static void initializeData(HttpServletRequest request) throws IOException {
 
 
             HttpSession session = request.getSession();
@@ -34,8 +34,7 @@ public class Profile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        initializeData(req,resp);
-
+        initializeData(req);
         req.getRequestDispatcher("/views/profile.jsp").forward(req,resp);
 
     }
@@ -43,8 +42,7 @@ public class Profile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        initializeData(req,resp);
-
+        initializeData(req);
         req.getRequestDispatcher("/views/profile.jsp").forward(req,resp);
     }
 }
