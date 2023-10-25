@@ -33,4 +33,8 @@ public class Menu extends HttpServlet {
         initializeModel(req);
         req.getRequestDispatcher("/views/menu.jsp").forward(req,resp);
     }
+
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doGet(req,resp);
+    }
 }

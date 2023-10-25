@@ -88,7 +88,7 @@
                         <option value="27">27</option>
                         <option value="28">28</option>
                         <option value="29">29</option>
-                        <option value="30">30</option>
+                        <option value="30" selected>30</option>
 
                     </select>
                 </div>
@@ -113,8 +113,8 @@
         let days = document.getElementById("days");
         
         days.onchange = function(event){
-            let target = evenet.target;
-            let d = target.options[e.selectedIndex].value;
+            let target = event.target;
+            let d = target.options[target.selectedIndex].value;
 
             let amount = document.getElementById("amount");
 

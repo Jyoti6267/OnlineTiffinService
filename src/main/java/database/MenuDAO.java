@@ -189,6 +189,7 @@ public class MenuDAO {
     public static Menu get(int menu_id) throws SQLException, IOException {
         Connection connection = GetConnection.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("select * from menu where id = ?");
+        preparedStatement.setInt(1,menu_id);
         ResultSet set = preparedStatement.executeQuery();
         if (!set.next()) return null;
         return builder(set);

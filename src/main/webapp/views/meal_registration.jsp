@@ -34,49 +34,49 @@
     <section class="admin-add-meal">
         <div class="container">
             <h2 class="text-center">Add Meal Details</h2>
-            <form id="mealForm" enctype="multipart/form-data">
+            <form id="mealForm" enctype="multipart/form-data" method="post" action="meal_registration">
                 <div class="form-group">
                     <label for="mealImage">Upload Image</label>
-                    <input type="file" class="form-control-file" id="mealImage" accept="image/*" required>
+                    <input type="file" class="form-control-file" id="mealImage" name="image" accept="image/*" required>
                 </div>
                 <div class="form-group">
                     <label for="mealName">Meal Name</label>
-                    <input type="text" class="form-control" id="mealName" placeholder="Enter meal name" required>
+                    <input type="text" class="form-control" id="mealName" name="title" placeholder="Enter meal name" required>
                 </div>
                 <div class="form-group">
                     <label for="mealPrice">Meal Price (Rs)</label>
-                    <input type="number" class="form-control" id="mealPrice" placeholder="Enter meal price" required>
+                    <input type="number" class="form-control" id="mealPrice" name= "price" placeholder="Enter meal price" required>
                 </div>
                 <div class="form-group">
                     <label for="descriptionMonday">Monday Description</label>
-                    <textarea class="form-control" id="descriptionMonday" rows="3" placeholder="Enter description for Monday"></textarea>
+                    <textarea class="form-control" id="descriptionMonday" rows="3" name="monday" placeholder="Enter description for Monday"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="descriptionTuesday">Tuesday Description</label>
-                    <textarea class="form-control" id="descriptionTuesday" rows="3" placeholder="Enter description for Tuesday"></textarea>
+                    <textarea class="form-control" id="descriptionTuesday" rows="3" name="tuesday" placeholder="Enter description for Tuesday"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="descriptionWednesday">Wednesday Description</label>
-                    <textarea class="form-control" id="descriptionWednesday" rows="3" placeholder="Enter description for Wednesday"></textarea>
+                    <textarea class="form-control" id="descriptionWednesday" rows="3" name="wednesday" placeholder="Enter description for Wednesday"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="descriptionThursday">Thursday Description</label>
-                    <textarea class="form-control" id="descriptionThursday" rows="3" placeholder="Enter description for Thursday"></textarea>
+                    <textarea class="form-control" id="descriptionThursday" rows="3" name="thursday" placeholder="Enter description for Thursday"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="descriptionFriday">Friday Description</label>
-                    <textarea class="form-control" id="descriptionFriday" rows="3" placeholder="Enter description for Friday"></textarea>
+                    <textarea class="form-control" id="descriptionFriday" rows="3" name="friday" placeholder="Enter description for Friday"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="descriptionSaturday">Saturday Description</label>
-                    <textarea class="form-control" id="descriptionSaturday" rows="3" placeholder="Enter description for Saturday"></textarea>
+                    <textarea class="form-control" id="descriptionSaturday" rows="3" name="saturday" placeholder="Enter description for Saturday"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="descriptionSunday">Sunday Description</label>
-                    <textarea class="form-control" id="descriptionSunday" rows="3" placeholder="Enter description for Sunday"></textarea>
+                    <textarea class="form-control" id="descriptionSunday" rows="3" name="sunday" placeholder="Enter description for Sunday"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Add Meal</button>
+                <input type="submit" class="btn btn-primary" value="Add Meal"/>
             </form>
         </div>
     </section>

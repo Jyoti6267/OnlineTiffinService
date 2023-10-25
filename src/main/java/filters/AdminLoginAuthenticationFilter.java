@@ -19,7 +19,6 @@ public class AdminLoginAuthenticationFilter implements Filter {
 
     private boolean authenticate(String username , String password,HttpServletRequest request) {
         if (username == null || password == null) {
-            request.setAttribute("message","Authentication Failed");
             return false;
 
         }

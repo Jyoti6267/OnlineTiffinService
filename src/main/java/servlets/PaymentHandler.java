@@ -19,6 +19,7 @@ public class PaymentHandler extends HttpServlet {
         if (subscription == null){
             req.setAttribute("message","Failed to purchase plan");
             req.getRequestDispatcher("/menu").forward(req,resp);
+            return;
         }
         try {
             SubscriptionDAO.insert(subscription);

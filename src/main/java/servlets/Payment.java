@@ -30,6 +30,7 @@ public class Payment extends HttpServlet {
 
         }
         catch(Exception e){
+            System.out.println(e);
             req.setAttribute("message","There is some problem");
             req.getRequestDispatcher("/menu").forward(req,resp);
         }

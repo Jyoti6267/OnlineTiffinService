@@ -39,14 +39,14 @@
                     <c:forEach var = "m" items="${menu}">
                         <div class="col-md-4">
                             <div class="card mb-4 food-card">
-                                <img src="${m.url}" class="card-img-top" alt="${m.title}">
+                                <img src="${m.url}" class="card-img-top"  alt="${m.title}">
                                 <div class="card-body">
                                     <h3 class="card-title">${m.title}</h3>
                                     <p class="card-text">
                                         <strong>Cost per Month:</strong> Rs. ${m.price}<br>
                                     </p>
-                                    <button class="btn btn-primary" data-toggle="modal" data-target="#${m.id}">Details</button>
-                                    <a style="text-decoration:none;" href="payment/${m.id}"><button class="btn btn-primary">Purchase</button></a>
+                                    <button class="btn btn-primary" data-toggle="modal" data-target="#id_${m.id}">Details</button>
+                                    <a style="text-decoration:none;" href="payment?menu_id=${m.id}"><button class="btn btn-primary">Purchase</button></a>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
 
         <c:forEach var="m" items="${menu}">
 
-            <div class="modal fade" id="${m.id}" tabindex="-1" role="dialog" aria-labelledby="${m.id}Label" aria-hidden="true">
+            <div class="modal fade" id="id_${m.id}" tabindex="-1" role="dialog" aria-labelledby="${m.id}Label" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
