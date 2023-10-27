@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 public class DispatchedDAO {
 
 
-    public Dispatched builder(String meal_type , int order_id , Date date){
+    public static Dispatched builder(String meal_type , int order_id , Date date){
         Dispatched dispatched = new Dispatched();
         dispatched.setDate(date);
         dispatched.setOrder_id(order_id);
@@ -16,7 +16,7 @@ public class DispatchedDAO {
         return dispatched;
     }
 
-    public boolean insert(Dispatched dispatched){
+    public static boolean insert(Dispatched dispatched){
         try {
             Connection connection = GetConnection.getConnection();
             PreparedStatement preparedStatement = connection.prepareStatement("insert into dispatched (date_,order_id,meal_type) values (?,?,?)");

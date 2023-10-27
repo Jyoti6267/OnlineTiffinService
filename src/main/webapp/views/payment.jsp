@@ -96,7 +96,7 @@
 
 
 
-                <input type="hidden" class="form-control" id="menu_id" value="${menu.id}">
+                <input type="hidden" class="form-control" id="menu_id" name="menu_id" value="${menu.id}">
 
                 <br>
 

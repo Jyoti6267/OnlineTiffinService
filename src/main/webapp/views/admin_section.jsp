@@ -22,10 +22,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Add Meal</a>
+                        <a class="nav-link" href="meal_registration">Add Meal</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log Out</a>
+                        <a class="nav-link" href="admin_logout">Log Out</a>
                     </li>
                 </ul>
 
@@ -61,9 +61,9 @@
                             <td>${order.pincode}</td>
                             <td>${order.district}</td>
                             <td>${order.meal_type}</td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#${order.menu_id}">Dispatch</button>
+                            <td><button class="btn btn-success" data-toggle="modal" data-target="#id_${order.menu_id}">Check</button>
                             </td>
-                            <td><button class="btn btn-success" data-toggle="modal" data-target="#confirmationModal">Check</button>
+                            <td><form method="post" action="dispatched"><input type="hidden" name="order_id" value="${order.order_id}" /> <input type="hidden" name="meal_type" value="${order.meal_type}"/> <input class="btn btn-success" type="submit" value="Dispatch"/></form>
                             </td>
                         </tr>
                         </c:forEach>
@@ -80,7 +80,7 @@
 
     <c:forEach var="m" items="${menus}">
 
-    <div class="modal fade" id="${m.id}" tabindex="-1" role="dialog" aria-labelledby="${m.id}Label" aria-hidden="true">
+    <div class="modal fade" id="id_${m.id}" tabindex="-1" role="dialog" aria-labelledby="${m.id}Label" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">

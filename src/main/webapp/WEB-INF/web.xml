@@ -143,6 +143,18 @@
         <url-pattern>/meal_registration</url-pattern>
     </servlet-mapping>
 
+
+    <servlet>
+        <servlet-name>Dispatched</servlet-name>
+        <servlet-class>servlets.DispatchOrder</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Dispatched</servlet-name>
+        <url-pattern>/dispatched</url-pattern>
+    </servlet-mapping>
+
+
+
     <welcome-file-list>
         <welcome-file>/views/home.jsp</welcome-file>
     </welcome-file-list>
@@ -203,5 +215,9 @@
         <url-pattern>/admin_logout</url-pattern>
     </filter-mapping>
 
+    <filter-mapping>
+        <filter-name>AdminLoginFilter</filter-name>
+        <url-pattern>/dispatched</url-pattern>
+    </filter-mapping>
 
 </web-app>
