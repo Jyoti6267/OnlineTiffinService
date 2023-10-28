@@ -35,7 +35,16 @@ public class UserDAO {
 
     public static void delete(User user) throws SQLException, IOException {
         Connection connection = GetConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("delete from user where username = ?");
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from otp where username = ?");
+        preparedStatement.setString(1,user.getUsername());
+        preparedStatement.executeUpdate();
+
+        preparedStatement = connection.prepareStatement("delete from subscription where username = ?");
+        preparedStatement.setString(1,user.getUsername());
+        preparedStatement.executeUpdate();
+
+
+        preparedStatement = connection.prepareStatement("delete from user where username = ?");
         preparedStatement.setString(1,user.getUsername());
         preparedStatement.executeUpdate();
     }

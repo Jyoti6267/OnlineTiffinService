@@ -134,29 +134,29 @@ public class MenuDAO {
         preparedStatement.executeUpdate();
     }
 
-    public static void delete(Menu menu) throws SQLException, IOException {
-        Connection connection = GetConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("delete from menu where id = ?");
-        preparedStatement.setInt(1,menu.getId());
-        preparedStatement.executeUpdate();
-    }
-
-    public static void update(Menu menu) throws SQLException, IOException {
-        Connection connection = GetConnection.getConnection();
-        PreparedStatement preparedStatement = connection.prepareStatement("update menu set title = ? ,sunday = ? ,monday = ? ,tuesday=?,wednesday=?,thursday=?,friday=?,saturday=?,price=?,url=? where id = ?");
-        preparedStatement.setString(1,menu.getTitle());
-        preparedStatement.setString(2,menu.getSunday());
-        preparedStatement.setString(3,menu.getMonday());
-        preparedStatement.setString(4,menu.getTuesday());
-        preparedStatement.setString(5,menu.getWednesday());
-        preparedStatement.setString(6,menu.getThursday());
-        preparedStatement.setString(7,menu.getFriday());
-        preparedStatement.setString(8,menu.getSaturday());
-        preparedStatement.setInt(9,menu.getPrice());
-        preparedStatement.setString(10,menu.getUrl());
-        preparedStatement.setInt(11,menu.getId());
-        preparedStatement.executeUpdate();
-    }
+//    public static void delete(Menu menu) throws SQLException, IOException {
+//        Connection connection = GetConnection.getConnection();
+//        PreparedStatement preparedStatement = connection.prepareStatement("delete from menu where id = ?");
+//        preparedStatement.setInt(1,menu.getId());
+//        preparedStatement.executeUpdate();
+//    }
+//
+//    public static void update(Menu menu) throws SQLException, IOException {
+//        Connection connection = GetConnection.getConnection();
+//        PreparedStatement preparedStatement = connection.prepareStatement("update menu set title = ? ,sunday = ? ,monday = ? ,tuesday=?,wednesday=?,thursday=?,friday=?,saturday=?,price=?,url=? where id = ?");
+//        preparedStatement.setString(1,menu.getTitle());
+//        preparedStatement.setString(2,menu.getSunday());
+//        preparedStatement.setString(3,menu.getMonday());
+//        preparedStatement.setString(4,menu.getTuesday());
+//        preparedStatement.setString(5,menu.getWednesday());
+//        preparedStatement.setString(6,menu.getThursday());
+//        preparedStatement.setString(7,menu.getFriday());
+//        preparedStatement.setString(8,menu.getSaturday());
+//        preparedStatement.setInt(9,menu.getPrice());
+//        preparedStatement.setString(10,menu.getUrl());
+//        preparedStatement.setInt(11,menu.getId());
+//        preparedStatement.executeUpdate();
+//    }
 
     private static Menu builder(ResultSet set) throws SQLException {
         Menu menu = new Menu();

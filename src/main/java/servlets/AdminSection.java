@@ -15,6 +15,10 @@ public class AdminSection extends HttpServlet {
 
         try {
             ArrayList<SubscriptionDAO.UnprocessedOrder> orders = SubscriptionDAO.fetchAllUnprocessedOrders();
+            if (orders.size() == 0){
+                request.setAttribute("message","No order to dispatch");
+                return;
+            }
             ArrayList<database.entity.Menu> menus = MenuDAO.fetchAll();
             request.setAttribute("orders",orders);
             request.setAttribute("menus",menus);
