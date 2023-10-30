@@ -51,7 +51,7 @@
                     
                         <c:forEach var="order" items="${orders}">
                          <tr>
-                            <td>${order.order_id}</td>
+                            <td>${order.id}</td>
                             <td>${order.order_date}</td>
                             <td>${order.days}</td>
                             <td><button class="btn btn-success" data-toggle="modal" data-target="#id_${order.menu_id}">Check</button>

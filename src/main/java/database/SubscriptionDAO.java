@@ -33,7 +33,7 @@ public class SubscriptionDAO {
 
     public static ArrayList<Subscription> fetchAll(String username) throws SQLException, IOException {
             Connection connection = GetConnection.getConnection();
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from subscriptions where username  = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from subscription where username  = ?");
             preparedStatement.setString(1,username);
             ResultSet resultSet = preparedStatement.executeQuery();
             ArrayList<Subscription> subscriptions = new ArrayList<>();

@@ -22,7 +22,7 @@
 
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Online Tiffin Service</a>
+            <a class="navbar-brand" href="home">Online Tiffin Service</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -57,7 +57,7 @@
                 </div>
                 <div class="form-group">
                     <label for="district">District</label>
-                    <select class="form-control" id="district" name="district">
+                    <select class="form-control" id="district" name="district" required>
                         <option value="">Select District</option>
                         <option value="Central Delhi">Central Delhi</option>
                         <option value="East Delhi">East Delhi</option>

@@ -13,23 +13,23 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Online Tiffin Service</a>
+            <a class="navbar-brand" href="home">Online Tiffin Service</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="home">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Menu</a>
+                        <a class="nav-link" href="menu">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="profile">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="logout">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -39,22 +39,22 @@
     <section class="user-registration">
         <div class="container">
             <h2 class="text-center">Update Profile</h2>
-            <form>
+            <form method="post" action="update">
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
-                    <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name">
+                    <input type="text" class="form-control" id="name" placeholder="Enter your full name" name="name" value="${user.name}">
                 </div>
                 <div class="form-group">
                     <label for="email">Email Address</label>
-                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="username" readonly>
+                    <input type="email" class="form-control" id="email" placeholder="Enter your email address" name="username" value="${user.username}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="Enter your address" name="address">
+                    <input type="text" class="form-control" id="address" placeholder="Enter your address" name="address" value="${user.address}">
                 </div>
                 <div class="form-group">
                     <label for="district">District</label>
-                    <select class="form-control" id="district" name="district">
+                    <select class="form-control" id="district" name="district" required>
                         <option value="">Select District</option>
                         <option value="Central Delhi">Central Delhi</option>
                         <option value="East Delhi">East Delhi</option>
@@ -72,12 +72,12 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="address">Pin Code</label>
-                    <input type="text" class="form-control" id="pincode" placeholder="Enter Pin Code" name="pincode">
+                    <label for="pincode">Pin Code</label>
+                    <input type="text" class="form-control" id="pincode" placeholder="Enter Pin Code" name="pincode" value="${user.pincode}">
                 </div>
                 <div class="form-group">
                     <label for="mobile">Mobile Number</label>
-                    <input type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number" name="mobile">
+                    <input type="tel" class="form-control" id="mobile" placeholder="Enter your mobile number" name="mobile" value="${user.mobile}">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>

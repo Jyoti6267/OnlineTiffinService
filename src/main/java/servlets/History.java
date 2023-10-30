@@ -43,6 +43,7 @@ public class History extends HttpServlet {
             }
         }
         catch (Exception exception){
+                System.out.println(exception);
                 request.setAttribute("message","Failed to fetch history");
         }
 

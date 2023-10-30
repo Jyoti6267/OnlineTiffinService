@@ -7,7 +7,14 @@ import java.sql.*;
 
 public class UserDAO {
 
-    public static User builder(HttpServletRequest request){
+    private static boolean checkNull(User user){
+        return user.getUsername() == null || user.getName()== null || user.getAddress() == null ||
+                user.getPassword() == null || user.getPincode() == null || user.getMobile() == null ||
+                user.getDistrict() == null;
+    }
+
+
+    public static User builder(HttpServletRequest request) throws Exception {
 
         User user = new User();
         user.setName(request.getParameter("name"));
@@ -17,6 +24,7 @@ public class UserDAO {
         user.setPincode(request.getParameter("pincode"));
         user.setMobile(request.getParameter("mobile"));
         user.setDistrict(request.getParameter("district"));
+        if(checkNull(user)) throw  new Exception("Invalid Request");
         return user;
     }
 

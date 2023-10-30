@@ -63,11 +63,16 @@ public class Registration extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User user = UserDAO.builder(req);
-        if (canRegister(user,req)){
-            register(user,req);
+        try {
+            User user = UserDAO.builder(req);
+            if (canRegister(user, req)) {
+                register(user, req);
+            }
+            req.setAttribute("user", user);
         }
-        req.setAttribute("user",user);
+        catch (Exception e){
+            req.setAttribute("message","There is some problem");
+        }
         doGet(req,resp);
     }
 }
