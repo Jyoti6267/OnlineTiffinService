@@ -42,7 +42,7 @@
                     <c:forEach var = "m" items="${menu}">
                         <div class="col-md-4">
                             <div class="card mb-4 food-card">
-                                <img src="${m.url}" class="card-img-top"  alt="${m.title}">
+                                <img width = "373px" height="248px" src="${m.url}" class="card-img-top"  alt="${m.title}">
                                 <div class="card-body">
                                     <h3 class="card-title">${m.title}</h3>
                                     <p class="card-text">
@@ -141,7 +141,7 @@
         
         <script>
         
-        myFunction();
+        myFunction(false);
         
         
         </script>

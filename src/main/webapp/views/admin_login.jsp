@@ -13,6 +13,8 @@ request.setAttribute("message",request.getParameter("message"));
         <link rel="stylesheet" href="css/login.css">
         <link rel="stylesheet" href="css/toast.css">
         <script src="js/toast.js"></script>
+         <script src="js/login.js"></script>
+
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     </head>
     <body>
@@ -46,7 +48,7 @@ request.setAttribute("message",request.getParameter("message"));
                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password">
                     </div>
     
-                    <input type="submit" value="Login" class="btn btn-primary"></input>
+                    <input type="submit" value="Login" onclick = "return validate();" class="btn btn-primary"></input>
                 </form>
             </div>
         </section>
@@ -60,7 +62,7 @@ request.setAttribute("message",request.getParameter("message"));
 
 <script>
 
-myFunction();
+myFunction(false);
 
 
 </script>

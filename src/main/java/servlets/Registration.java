@@ -57,6 +57,7 @@ public class Registration extends HttpServlet {
             request.setAttribute("message","User registered successfully");
         }
         catch (Exception exception){
+            System.out.println(exception);
             request.setAttribute("message","There is some problem");
         }
     }
@@ -65,12 +66,13 @@ public class Registration extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         try {
             User user = UserDAO.builder(req);
+            req.setAttribute("user", user);
             if (canRegister(user, req)) {
                 register(user, req);
             }
-            req.setAttribute("user", user);
         }
         catch (Exception e){
+            System.out.println(e);
             req.setAttribute("message","There is some problem");
         }
         doGet(req,resp);

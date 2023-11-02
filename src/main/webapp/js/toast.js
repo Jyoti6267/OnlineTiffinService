@@ -1,9 +1,9 @@
 
 
 
-function myFunction() {
+function myFunction(value) {
   
-    if(performance.navigation.type == 2) return;
+    if(value == false && performance.navigation.type == 2) return;
 
 
     var x = document.getElementById("snackbar");

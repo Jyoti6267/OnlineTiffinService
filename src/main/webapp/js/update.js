@@ -10,7 +10,7 @@ function validatePassword(){
 
         pas.style.borderColor = "red";
 
-        pas.placeholder = "At least 5 characters Required"; 
+        pas.placeholder = "At least 5 characters Required";
 
         return false;
     }
@@ -27,18 +27,18 @@ function validateAddress(){
 
     let ad = document.getElementById("address");
 
-    address = ad.value; 
+    address = ad.value;
 
     address = address == null ? null : address.trim();
 
     if(address == null || address == 0 ) {
-        
-        
+
+
 
         ad.style.borderColor = "red";
 
         ad.placeholder = "Enter valid address";
-        
+
         return false;
     }
 
@@ -67,7 +67,7 @@ function validateFullName(){
 
         fName.placeholder = "Enter valid name";
 
-        
+
         return false;
 
 
@@ -86,13 +86,13 @@ function validatePinCode(){
     let pin = document.getElementById("pincode");
 
     let code = pin.value;
-    
+
 
     code = code == null ? null : code.trim();
 
     if(code == null || code.length != 6 ) {
-     
-        
+
+
 
         pin.style.borderColor = "red";
 
@@ -107,8 +107,8 @@ function validatePinCode(){
         let temp = code.charCodeAt(i);
 
         if(!(temp>=48 && temp <= 57)) {
-         
-            
+
+
             let pin = document.getElementById("pincode");
 
             pin.style.borderColor = "red";
@@ -116,7 +116,7 @@ function validatePinCode(){
             pin.placeholder = "Enter valid pincode";
 
             return false;
-            
+
         }
     }
 
@@ -129,29 +129,6 @@ function validatePinCode(){
     return true;
 
 }
-
-
-function validateOtp(){
-
-    let otp = document.getElementById("otp").value;
-
-    if(otp == null){
-
-        toast("Please enter OTP");
-        return false;
-    }
-    else {
-
-        if(otp.length != 6) {
-            toast("Otp is not valid");
-            return false;
-        }
-        else return true;
-
-    }
-
-}
-
 function validate(){
 
 
@@ -159,72 +136,6 @@ function validate(){
     let b =  validateAddress() ;
     let c =  validatePassword() ;
     let d =  validatePinCode();
-    let e =  validateOtp();
-    return a && b && c && d && e;
-
-}
-
-
-function toast(message){
-
-    let snackbar = document.getElementById("snackbar");
-
-    snackbar.innerText = message;
-
-    myFunction(true);
-
-}
-
-function validateEmail(email){
-
-    email = email == null ? null : email.trim();
-
-    if(email == null || email.length<3) return false;
-
-    for(let i = 0 ; i < email.length;i++){
-
-        if(email[i]=='@' && email.length - 1 - i >= 1 && i >0  ) return true;
-
-    }
-
-    return false;
-
-}
-
-
-function otprequest(event) {
-
-    event.preventDefault();
-
-    let email_id = document.getElementById("email").value;
-
-    let url = document.getElementById("link").value;
-
-    let status = validateEmail(email_id);
-    
-    if(status){
-
-    let promise = fetch(url+"?email="+email_id);
-
-    promise.then((response)=>{
-        if(response.ok){
-            
-            let otp = document.getElementById("otpField");
-
-            otp.style.display="block";
-            
-            toast("Otp is sent successfully");
-        }
-        else{
-            toast("Not able to send OTP");
-        }
-    });
-
-    
-    
-    }
-    else {
-        toast("Email is not valid");
-    }
+    return a && b && c && d ;
 
 }

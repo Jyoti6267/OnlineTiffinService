@@ -50,7 +50,7 @@
 
     <servlet>
         <servlet-name>Delete</servlet-name>
-        <servlet-class>servlets.Delete</servlet-class>
+        <servlet-class>servlets.DeleteAccount</servlet-class>
     </servlet>
 
     <servlet-mapping>

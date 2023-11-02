@@ -20,10 +20,10 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Add Meal</a>
+                        <a class="nav-link" href="admin_section">Admin Section</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Log Out</a>
+                        <a class="nav-link" href="admin_logout">Log Out</a>
                     </li>
                 </ul>
 
@@ -90,7 +90,7 @@
         
         <script>
         
-        myFunction();
+        myFunction(false);
         
         
         </script>

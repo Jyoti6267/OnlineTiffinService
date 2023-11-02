@@ -9,6 +9,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/toast.css">
     <script src="js/toast.js"></script>
+    <script src="js/update.js"></script>
+
 </head>
 <body>
     <header>
@@ -87,7 +89,7 @@
 
                 <br>
 
-                <button type="submit" class="btn btn-primary">Update</button>
+                <input type="submit" class="btn btn-primary" value="Update" onclick="return validate();"/>
             </form>
         </div>
     </section>
@@ -101,7 +103,7 @@
         
         <script>
         
-        myFunction();
+        myFunction(false);
         
         
         </script>

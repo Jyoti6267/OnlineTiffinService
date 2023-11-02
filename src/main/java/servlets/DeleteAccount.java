@@ -17,6 +17,8 @@ public class DeleteAccount extends HttpServlet {
         String username = (String) session.getAttribute("username");
         try {
             UserDAO.delete(UserDAO.get(username));
+            session.removeAttribute("username");
+            session.removeAttribute("userDetails");
             req.setAttribute("message","Account is deleted successfully");
             req.getRequestDispatcher("/home").forward(req,resp);
         }

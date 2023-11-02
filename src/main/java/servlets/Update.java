@@ -29,9 +29,10 @@ public class Update extends HttpServlet {
 
         try {
             User user = UserDAO.builder(req);
+            req.setAttribute("user",user);
             UserDAO.update(user);
             req.setAttribute("message","Profile updated successfully");
-            req.setAttribute("user",user);
+
         }
         catch (Exception exception){
             req.setAttribute("message","There is some problem");

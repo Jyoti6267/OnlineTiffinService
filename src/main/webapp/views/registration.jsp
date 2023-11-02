@@ -76,11 +76,11 @@
                 </div>
                 <div class="form-group">
                     <label for="address">Pin Code</label>
-                    <input type="text" class="form-control" id="pincode" name="${user.pincode}" placeholder="Enter Pin Code" name="pincode">
+                    <input type="text" class="form-control" id="pincode" value="${user.pincode}" placeholder="Enter Pin Code" name="pincode">
                 </div>
                 <div class="form-group">
                     <label for="mobile">Mobile Number</label>
-                    <input type="tel" class="form-control" id="mobile" name="${user.mobile}" placeholder="Enter your mobile number" name="mobile">
+                    <input type="tel" class="form-control" id="mobile" value="${user.mobile}" placeholder="Enter your mobile number" name="mobile">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
